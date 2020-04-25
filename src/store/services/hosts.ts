@@ -1,10 +1,14 @@
 import feathersClient, { makeServicePlugin, BaseModel } from '@/plugins/feathers-client'
+import {Id} from '@feathersjs/feathers'
 
 interface HostsType {
+  _id?: Id,
 	name: string,
 	host: string,
 	username: string,
-	password: string
+	password: string,
+
+  isActivated?: boolean,
 }
 
 class Hosts extends BaseModel<HostsType> {
@@ -31,3 +35,4 @@ const servicePlugin = makeServicePlugin({
 })
 
 export default servicePlugin
+export {HostsType}
